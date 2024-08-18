@@ -1,0 +1,40 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  width: 300px;
+  padding: 8px;
+  margin: 0 auto;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  text-align: left;
+}
+
+.button {
+  border: none;
+  background-color: blue;
+  color: white;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in-out;
+  max-width: fit-content;
+  margin: 0 auto;
+}
+
+.button:hover {
+  opacity: 0.7;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+}

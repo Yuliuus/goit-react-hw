@@ -1,0 +1,45 @@
+.contactWrap {
+    width: 240px;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+   justify-content: space-between;
+    border: 1px solid #2a2a2a;
+    margin: 0;
+  }
+  
+  .wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .contactText {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    font-size: 18px;
+    margin: auto;
+  }
+  
+  .line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .button {
+    border: none;
+    background-color: blue;
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  
+    transition: opacity 0.2s ease-in-out;
+  }
+  
+  .button:hover {
+    opacity: 0.7;
+  }
