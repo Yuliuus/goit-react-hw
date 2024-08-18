@@ -1,17 +1,16 @@
-import { useDispatch } from "react-redux";
-import css from "./ContactForm.module.css";
-import { Field, Form, Formik, ErrorMessage } from "formik";
-import * as Yup from "yup";
 import { useId } from "react";
-import { addContact } from "../../redux/contactsOps";
+import { Formik, Field, Form, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import { useDispatch } from "react-redux";
+import { addContact } from "../redux/contacts/operations";
+import css from "../components/css/ContactForm.module.css";
 
-export default function ContactForm() {
-  const initialValues = {
-    name: "",
-    number: "",
-  };
+const ContactForm = () => {
+  const nameFieldId = useId();
+  const numberFieldId = useId();
+  const dispatch = useDispatch();
 
-  const UserSchema = Yup.object().shape({
+  const validationSchema = Yup.object().shape({
     name: Yup.string()
       .min(3, "Contact name is too short!")
       .max(50, "Contact name is too long!")
@@ -22,10 +21,6 @@ export default function ContactForm() {
       .required("This field is required"),
   });
 
-  const nameFieldId = useId();
-  const numberFieldId = useId();
-  const dispatch = useDispatch();
-
   const handleSubmit = (values, actions) => {
     dispatch(addContact(values));
     actions.resetForm();
@@ -33,9 +28,12 @@ export default function ContactForm() {
 
   return (
     <Formik
-      initialValues={initialValues}
+      initialValues={{
+        name: "",
+        number: "",
+      }}
       onSubmit={handleSubmit}
-      validationSchema={UserSchema}
+      validationSchema={validationSchema}
     >
       <Form className={css.form}>
         <div className={css.group}>
@@ -58,4 +56,6 @@ export default function ContactForm() {
       </Form>
     </Formik>
   );
-}
+};
+
+export default ContactForm;

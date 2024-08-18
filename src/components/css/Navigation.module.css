@@ -1,0 +1,16 @@
+.wrap {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .list {
+    list-style: none;
+  
+  }
+  .nav {
+    display: flex;
+    gap: 25px;
+    padding: 20px 20px;
+   
+  }

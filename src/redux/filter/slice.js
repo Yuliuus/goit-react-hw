@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { logOut } from "../auth/operations";
 
 const slice = createSlice({
   name: "filters",
@@ -10,8 +11,13 @@ const slice = createSlice({
       state.name = action.payload;
     },
   },
+  extraReducers: (builder) => {
+    builder.addCase(logOut.fulfilled, (state) => {
+      state.name = "";
+    });
+  },
 });
 
-export const selectNameFilter = (state) => state.filters.name;
 export const { changeFilter } = slice.actions;
+
 export const filtersReducer = slice.reducer;
